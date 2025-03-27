@@ -1,0 +1,6 @@
+**/.env.secret
+**/*.sh
+**/.terraform
+**/terraform.tfstate*
+**/.terraform.lock.hcl
+**/create-secret.sh
