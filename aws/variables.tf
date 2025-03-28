@@ -27,3 +27,24 @@ variable "environment" {
   type        = string
   default     = "dev"  # 필요한 경우 기본값 설정
 }
+
+variable "eks_namespace_roles" {
+  description = "Map of namespace names to IAM role configurations"
+  type = map(object({
+    name               = string
+    environment        = string
+    additional_policies = list(string)
+  }))
+  default = {
+    "istory-dev" = {
+      name               = "istory-dev"
+      environment        = "development"
+      additional_policies = []
+    }
+    "istory-prod" = {
+      name               = "istory-prod"
+      environment        = "production"
+      additional_policies = []
+    }
+  }
+}
